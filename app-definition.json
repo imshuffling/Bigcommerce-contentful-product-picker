@@ -1,0 +1,20 @@
+{
+  "name": "BC Variant Picker",
+  "src": "http://localhost:3001",
+  "locations": [
+    {
+      "location": "app-config"
+    },
+    {
+      "location": "entry-field",
+      "fieldTypes": [
+        {
+          "type": "Symbol"
+        }
+      ]
+    },
+    {
+      "location": "dialog"
+    }
+  ]
+}
