@@ -2,12 +2,6 @@
 .env.local
 .env.*.local
 
-# Dependencies
-node_modules/
-
-# Build outputs
-dist/
-build/
 
 # IDE
 .vscode/
