@@ -2,6 +2,9 @@
 
 A custom Contentful app that allows you to browse and select BigCommerce product variants, storing the variant SKU in a short text field. This app provides full variant support that is missing from other BigCommerce integrations.
 
+UPDATED
+Has the ability now to be served in the sidebar location and the SKU short code stored in the rich text field
+
 ## Features
 
 - Browse all BigCommerce products with their variants
