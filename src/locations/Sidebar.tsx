@@ -69,6 +69,18 @@ const Sidebar = () => {
       // Get the current rich text value
       const currentValue = await contentField.getValue();
 
+      // Fetch full product details to get custom_url
+      const { BigCommerceService } = await import('../services/bigcommerce');
+      const bigCommerceService = new BigCommerceService({
+        storeHash: parameters.storeHash!,
+        accessToken: parameters.accessToken!,
+      });
+      const fullProduct = await bigCommerceService.getProductById(product.id);
+
+      console.log('product', product);
+      console.log('fullProduct', fullProduct);
+      console.log('variant', variant);
+
       // Create product data to embed
       const productData = {
         variantId: variant.id,
@@ -80,6 +92,7 @@ const Sidebar = () => {
           product.primary_image?.url_thumbnail ||
           product.images?.[0]?.url_thumbnail ||
           '',
+        productUrl: fullProduct.custom_url?.url || undefined,
         options:
           variant.option_values?.map((opt) => ({
             name: opt.option_display_name,

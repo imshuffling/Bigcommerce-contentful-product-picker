@@ -19,6 +19,10 @@ export interface BigCommerceProduct {
   sku: string;
   price: number;
   calculated_price?: number;
+  custom_url?: {
+    url: string;
+    is_customized: boolean;
+  };
   variants: BigCommerceVariant[];
   primary_image?: {
     url_thumbnail?: string;
@@ -91,6 +95,10 @@ export class BigCommerceService {
     return this.request<BigCommerceProduct[]>(
       `/catalog/products?keyword=${encodeURIComponent(keyword)}&page=${page}&limit=${limit}&include=variants,images,primary_image`
     );
+  }
+
+  async getProductById(productId: number): Promise<BigCommerceProduct> {
+    return this.request<BigCommerceProduct>(`/catalog/products/${productId}`);
   }
 
   async getProductVariants(productId: number): Promise<BigCommerceVariant[]> {
